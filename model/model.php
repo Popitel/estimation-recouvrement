@@ -4,9 +4,9 @@ require_once('Estimation.php');
 
 class model
 {
-	public $dbname = "mydb";
+	public $dbname = "postgres";
 	public $username = "postgres";
-	public $password = "password";
+	public $password = "admin";
 
 	private function connect()
 	{
@@ -16,44 +16,37 @@ class model
 		return $db_con;
 	}
 
-	public function idExist(int $id)
+	public function idExist($id)
 	{
 		$db_con = $this->connect();
-		$result = pg_query_params($db_con, "SELECT identifiant FROM users WHERE identifiant = $1", array($id));
-		if(pg_num_rows($result) > 0)
-		{
-			return True;
-		}
-		else
-		{
-			return False;
-		}
+		$result = pg_query_params($db_con, "SELECT identifiant FROM users WHERE identifiant = $1;", array($id));
+		if($result)
+			if(pg_num_rows($result) > 0)
+			{
+				return True;
+			}
+		
+		return False;
 	}
 
-	public function createUser($infos)
+	public function createUser($user)
 	{
-		if($infos->niveau_bota == null)
-		{
-			$infos->niveau_bota = 0;
-		}
-		if($infos->annee_bota == null)
-		{
-			$infos->annee_bota = 0;
-		}
 		$db_con = $this->connect();
 		$id = $this->getNewId();
-		$new_user = array(
-			$id,
-			$infos->genre,
-			$infos->naissance,
-			$infos->dalt,
-			$infos->etude,
-			$infos->pays,
-			$infos->niveau_bota,
-			$infos->annee_bota,
-			$infos->recouvre,
-			$infos->echelle);
-		pg_query_params($db_con, "INSERT INTO users VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);", $new_user); 
+		$params = array(
+			intval($id),
+			$user->genre,
+			$user->naissance,
+			strval($user->dalt),
+			$user->etude,
+			$user->pays,
+			intval($user->niveau_bota),
+			intval($user->annee_bota),
+			strval($user->recouvre),
+			$user->echelle);
+		$result = pg_query_params($db_con, "INSERT INTO users VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);", $params); 
+		if(!$result)
+			throw new Excpetion("Creation user query failed");
 
 		return $id;
 	}
@@ -78,7 +71,10 @@ class model
 				identifiant = $1
 			ORDER BY
 				serie DESC", array($id));
-		$lastSerie = pg_fetch_result($result, 0, 0);
+		if($result)
+			$lastSerie = pg_fetch_result($result, 0, 0);
+		else
+			$lastSerie = 0;
 
 		return $lastSerie + 1;
 	}
@@ -136,14 +132,10 @@ class model
 	public function updateUserInfo($id, $column, $val)
 	{
 		$db_con = $this->connect();
-		$query_str = "
-			UPDATE
-				users
-			SET
-				" . $column . " = $1
-			WHERE
-				identifiant = $2";
-		pg_query_params($db_con, $query_str, array($val, $id));
+		$query_str = "UPDATE users SET " . $column . " = $1 WHERE identifiant = $2";
+		pg_send_query_params($db_con, $query_str, array($val, $id));
+		$result = pg_get_result($db_con);
+		echo pg_result_error($result);
 	}
 	
 	public function enregistrer_estimation($esti)
@@ -153,13 +145,13 @@ class model
 			INSERT INTO 
 				estimations
 			VALUES ($1, $2, $3, $4, $5, $6, $7);";
-		pg_query_params($db_con, $query_str, array(
+		$result = pg_query_params($db_con, $query_str, array(
 				$esti->id, 
 				$esti->num,
-				$esti->serie,
 				$esti->nom,
 				$esti->debut->format('Y-m-d H:i:s'),
 				$esti->fin->format('Y-m-d H:i:s'),
+				$esti->serie,
 				$esti->valeur
 				));
 	}

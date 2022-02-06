@@ -7,6 +7,9 @@
 -système pour extraire les données dans un excel
 -selectionner automatiquement la barre d'entrée de texte sur la page estimation
 -mettre en plein écran pendant estimation (javascript)
+-mettre tous les textes et titres dans le meme fichier
+-ajouter un bouton "recommencer" sur la dernière page ?
+-structure plusjolie, éléments centrées et espacés etc...
 
 //// Déploiement
 - trouver comment mettre ne ligne et passer les commandes à Jan

@@ -1,6 +1,12 @@
 <?php
 require_once './public/textes/input_text.php';
 $input = new Input;
+$i = 0;
+foreach($_SESSION["image_name"] as $name)
+{
+	echo $_SESSION["image_name"] . " " . $_SESSION["debut"] . " " . $_SESSION["fin"] . " " . $_SESSION["valeur"] . PHP_EOL;
+	$i++;
+}
 ob_start(); ?>
 	<img class="image"
 		src=<?= "./public/images/" . $image_name . ".png"?>

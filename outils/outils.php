@@ -1,13 +1,13 @@
 <?php
 
-function creerInputRadio($a_valeur, $name)
+function creerInputRadio($a_valeur, $name, $required)
 {
 	$sHtml = "";
 
 	$first = true;
 	foreach($a_valeur as $value => $label)
 	{
-		$sHtml .= "<input type='radio' name='" . $name . "' id='" . $value . "' value='" . $value . "'" . ($first ? ' required' : '') . ">&nbsp;";
+		$sHtml .= "<input type='radio' name='" . $name . "' id='" . $value . "' value='" . $value . "'" . (($first && $required) ? ' required' : '') . ">&nbsp;";
 		$sHtml .= "<label for='" . $value . "'>" . $label . "</label><br>";
 
 		if($first) $first = false;

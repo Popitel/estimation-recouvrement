@@ -48,11 +48,6 @@ class Input
 	
 	// Questionnaire de fin
 	
-	public $titre_questionnaire_de_fin = "Questionnaire de fin";
-	
-	public $question_confiance = "Quelle confiance avez-vous dans vos estimations ?";
-	public $question_quels_cas = "Dans quel(s) cas avez-vous trouvé qu’il était plus difficile d’estimer le recouvrement ?";
-	public $question_terrain = "Si vous avez déjà estimé des taux de recouvrement sur le terrain, comment pensez-vous que sont vos estimations sur les quadrats virtuels par rapport à vos estimations sur le terrain ?";
 	public $mail = "Si vous souhaitez être informé des résultats de l’étude, vous pouvez indiquer ici votre adresse mail :";
 
 	// Page de remerciements
@@ -63,7 +58,7 @@ class Input
 
 
 /*************** Questionnaire du début ***************/	
-	const S_QUESTION_GENRE = "Veuillez indiquer ce qui décrit le mieux votre genre ?";
+	const S_QUESTION_GENRE = "Veuillez indiquer ce qui décrit le mieux votre genre :";
 	const S_QUESTION_ANNEE = "Votre année de naissance :";
 	const S_QUESTION_MOIS = "Votre mois de naissance :";
 	const S_QUESTION_DALTONIEN = "Etes-vous daltonien ? ";
@@ -75,10 +70,10 @@ class Input
 	const S_QUESTION_RECOUVREMENT = "Avez-vous déjà estimé des taux de recouvrement sur le terrain ?";
 	const S_QUESTION_ECHELLE_RECOUVREMENT = "Si oui, avec quelle échelle de recouvrement ?";
 
-/*************** Tableaux du questionnaire ***************/
+/*************** Tableaux du questionnaire de début ***************/
 	const A_LABEL_OUI_NON = array(
-		'oui' => 'Oui',
-		'non' => 'Non'
+		true => 'Oui',
+		false => 'Non'
 	);
 
 	const A_LABEL_GENRE_PAR_ID = array(
@@ -106,11 +101,11 @@ class Input
 	const A_LABEL_ETUDES_PAR_ID = array(
 		'aucune' => 'Aucune étude',
 		'bac' => 'Bac',
-		'bac2' => 'Bac +2',
-		'bac3' => 'Bac +3',
-		'bac4' => 'Bac +4',
-		'bac5' => 'Bac +5',
-		'bac8' => 'Bac +8'
+		'bac+2' => 'Bac +2',
+		'bac+3' => 'Bac +3',
+		'bac+4' => 'Bac +4',
+		'bac+5' => 'Bac +5',
+		'bac+8' => 'Bac +8'
 	);
 
 	const A_LABEL_NIVEAU_BOTANIQUE_PAR_ID = array(
@@ -126,4 +121,40 @@ class Input
 		'braun' => 'Braun-Blanquet',
 		'pin' => 'Pin point'
 	);
+
+/*************** Questionnaire de fin ***************/	
+	const S_TITRE_QUESTIONNAIRE_FIN = "Questionnaire de fin";
+	const S_QUESTION_CONFIANCE = "Quelle confiance avez-vous dans vos estimations ?";
+	const S_QUESTION_QUELS_CAS = "Dans quel(s) cas avez-vous trouvé qu’il était plus difficile d’estimer le recouvrement ?";
+	const S_QUESTION_TERRAIN = "Si vous avez déjà estimé des taux de recouvrement sur le terrain, comment pensez-vous que sont vos estimations sur les quadrats virtuels par rapport à vos estimations sur le terrain ?";
+	const S_MAIL = "Si vous souhaitez être informé des résultats de l’étude, vous pouvez indiquer ici votre adresse mail.";
+
+/*************** Tableaux du questionnaire de fin ***************/
+	const A_LABEL_NIVEAU_CONFIANCE = array(
+		1 => '1 (aucune confiance)',
+		2 => '2',
+		3 => '3',
+		4 => '4',
+		5 => '5 (mes estimations sont exactes)'
+	);
+
+	const A_LABEL_QUELS_CAS = array(
+		'sais_pas' => 'Je ne sais pas',
+		'vert' => 'Points verts',
+		'rouge' => 'Points rouges',
+		'faible' => 'Recouvrements faibles',
+		'moyen' => 'Recouvrements moyens',
+		'fort' => 'Recouvrements forts',
+		'no_agreg' => 'Aucune agrégation',
+		'agreg_faible' => 'Agrégation faible',
+		'agreg_moyenne' => 'Agrégation moyenne',
+		'agreg_forte' => 'Agrégation forte'
+	);
+
+	const A_LABEL_TERRAIN = array(
+		'moins' => 'Moins précises',
+		'autant' => 'Aussi précises',
+		'plus' => 'Plus précises'
+	);
 }
+
