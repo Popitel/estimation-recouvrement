@@ -1,0 +1,12 @@
+//// gestion des erreurs
+-mettre en place sécurité si l'utilisateur renvoi des formulaires
+-verif des valeurs passées en post
+-contrainte sur les types de valeurs, identifiant(num), email(mail), estimation(0-100)
+
+//// Autre
+-système pour extraire les données dans un excel
+-selectionner automatiquement la barre d'entrée de texte sur la page estimation
+-mettre en plein écran pendant estimation (javascript)
+
+//// Déploiement
+- trouver comment mettre ne ligne et passer les commandes à Jan
