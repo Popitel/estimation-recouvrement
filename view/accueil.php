@@ -1,16 +1,11 @@
 <?php
 require_once './public/textes/input_text.php';
-$input = new Input;
-ob_start(); ?>
-	<h1> <?= $input->titreAccueil ?> </h1>
-	
 
-		<?= $input->texteAccueil ?>
-	
-	<br />
-	<br />
-	<br />
+ob_start();
 
-	<a href="index.php?action=identification" title="Cliquez pour participer" class="button-59" role="button">Participer</a>
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
+echo "<h1>" . Input::S_TITRE_ACCEUIL . "</h1>" . Input::S_TEXTE_ACCEUIL;
+echo "<br><br><br>";
+echo "<a href='index.php?action=identification' title='Cliquez pour participer' class='button-59' role='button'>" . Input::S_TEXTE_BOUTON_ACCEUIL . "</a>";
+
+$content = ob_get_clean();
+require('template.php');

@@ -1,23 +1,15 @@
 <?php
 require_once './public/textes/input_text.php';
-$input = new Input;
-ob_start() ?>
-	<h1> <?= $input->titre_page_identification ?> </h1>
-	
-	<br />
 
-	<a href="index.php?action=questionnaire" title="Cliquez pour acceder au questionnaire" class="button-59" role="button">
-	Je n'ai jamais participé</a>
+ob_start();
 
-	<br />
-	<br />
+echo "<h1>" . Input::S_TITRE_PAGE_IDENTIFICATION . "</h1><br>";
 
-	<form action="index.php" method="post">
-		<p>
-		<label for="identifiant"> <?= $input->texte_page_identification ?> </label><br />
-		<input type="text" name="identifiant" id="identifiant" required>
-		<input type="submit" value="Envoyer mon identifiant" class="button-59">
-		</p>
-	</form>
-<?php $content = ob_get_clean(); ?>
-<?php require('template.php'); ?>
+echo "<a href='index.php?action=questionnaire' title='jamais participé' class='button-59' role='button'>" . Input::S_TEXTE_BOUTON_JAMAIS_PARTICIPE . "</a><br><br>";
+
+echo "<form action='index.php' method='post'><p><label for='identifiant'>" . Input::S_TEXTE_PAGE_IDENTIFICATION . "</label><br><br>";
+echo "<input type='text' name='identifiant' id='identifiant' required> ";
+echo "<input type='submit' value=" . Input::S_TEXTE_BOUTON_DEJA_PARTICIPE . " class='button-59'></p></form>";
+
+$content = ob_get_clean();
+require('template.php');

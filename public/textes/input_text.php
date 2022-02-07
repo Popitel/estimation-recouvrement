@@ -4,58 +4,50 @@ class Input
 {
 	// NOM DES FICHIERS EXCEL A LIRE
 
-	public $green_sheet_name = "sample_order_quadrats_green.csv";
-	public $red_sheet_name = "sample_order_quadrats_red.csv";
+	const S_GREEN_SHEET_NAME = "sample_order_quadrats_green.csv";
+	const S_RED_SHEET_NAME = "sample_order_quadrats_red.csv";
 
 	// DIFFERENTS TEXTES A AFFICHER 
 
 	// Titre de l'onglet
 	//
-	public $titre_page_global = "Estimation recouvrement";
+	const S_TITRE_PAGE_GLOBALE = "Estimation recouvrement";
 
 	//Page d'accueil
 
-	public $titreAccueil = "Etude sur l’estimation du taux de recouvrement en botanique";
+	const S_TITRE_ACCEUIL = "Etude sur l’estimation du taux de recouvrement en botanique";
 
-	public $texteAccueil = "Vous allez participer à une étude sur l’estimation des taux de recouvrement en botanique. 
-		<br />
-		<br />
-		En cliquant sur le bouton « Participer » ci-dessous, vous allez être dirigé vers un questionnaire, puis vous aurez deux séries d’estimations à réaliser. 
-		<br />
-		Pour chaque estimation, un quadrat virtuel vous sera présenté et vous devrez estimer la proportion de la surface du carré couverte par les points de couleur. La réponse est à donner en pourcentage, et les nombres à virgule sont acceptés jusqu’à la 2ème décimale. La durée de l’exercice dépend de votre vitesse de réponse, mais prévoyez d’avoir 20 minutes devant vous pour pouvoir le faire dans de bonnes conditions. Veuillez à faire cet exercice sur un écran de dimensions supérieures ou égales à 15.";
+	const S_TEXTE_ACCEUIL = "Vous allez participer à une étude sur l’estimation des taux de recouvrement en botanique.<br><br>En cliquant sur le bouton « Participer » ci-dessous, vous allez être dirigé vers un questionnaire, puis vous aurez deux séries d’estimations à réaliser. <br><br>Pour chaque estimation, un quadrat virtuel vous sera présenté et vous devrez estimer la proportion de la surface du carré couverte par les points de couleur. La réponse est à donner en pourcentage, et les nombres à virgule sont acceptés jusqu’à la 2ème décimale. La durée de l’exercice dépend de votre vitesse de réponse, mais prévoyez d’avoir 20 minutes devant vous pour pouvoir le faire dans de bonnes conditions. Veuillez à faire cet exercice sur un écran de dimensions supérieures ou égales à 15.";
+
+	const S_TEXTE_BOUTON_ACCEUIL = "Participer";
 
 	// Page d'identification
 
-	public $titre_page_identification = "Aves-vous déjà participé ?";
-
-	public $texte_page_identification = "Si vous avez déjà participé entrez simplement l'identifiant qui vous à été donné puis cliquez sur le bouton ci-dessous.";
+	const S_TITRE_PAGE_IDENTIFICATION = "Avez-vous déjà participé ?";
+	const S_TEXTE_BOUTON_JAMAIS_PARTICIPE = "Je n'ai jamais participé";
+	const S_TEXTE_BOUTON_DEJA_PARTICIPE = "Envoyer mon identifiant";
+	const S_TEXTE_PAGE_IDENTIFICATION = "Si vous avez déjà participé entrez simplement l'identifiant qui vous à été donné puis cliquez sur le bouton ci-dessous.";
 
 	// Page de transition avant le départ
 
-	public $texteAvantDepart = "Vous allez maintenant commencer la 1ère série d’estimations, où vous devrez estimer le recouvrement de 20 quadrats virtuels. 
-	<br />
-	Vous avez le temps que vous voulez pour prendre les mesures, et le temps est enregistré. Les quadrats ne s’enchaînent pas automatiquement, après chaque estimation vous devrez cliquer sur un bouton pour passer au quadrat suivant. Cliquez sur « commencer » quand vous êtes prêt.";
+	const S_TEXTE_AVANT_DEPART = "Vous allez maintenant commencer la 1ère série d’estimations, où vous devrez estimer le recouvrement de 20 quadrats virtuels.<br><br> Vous avez le temps que vous voulez pour prendre les mesures, et le temps est enregistré. Les quadrats ne s’enchaînent pas automatiquement, après chaque estimation vous devrez cliquer sur un bouton pour passer au quadrat suivant. <br><br>Cliquez sur « commencer » quand vous êtes prêt.";
 
 	// Page d'erreur d'identification
 	
-	public $texte_wrongId = "L'identifiant que vous avez donné n'existe pas";
+	const S_TEXTE_WRONG_ID = "L'identifiant que vous avez donné n'existe pas";
 	
 	// Page de transition avant la série de rouges
 	
-	public $texte_transition_vers_rouge = "Vous allez maintenant commencer la 2ème série d’estimations, où vous devrez estimer le recouvrement de 15 quadrats virtuels. 
-	<br />
-	Vous avez le temps que vous voulez pour prendre les mesures, et le temps est enregistré. Les quadrats ne s’enchaînent pas automatiquement, après chaque estimation vous devrez cliquer sur un bouton pour passer au quadrat suivant. Cliquez sur « commencer » quand vous êtes prêt.";
-	
-	// Questionnaire de fin
-	
-	public $mail = "Si vous souhaitez être informé des résultats de l’étude, vous pouvez indiquer ici votre adresse mail :";
+	const S_TEXTE_BOUTON_TRANSITION = "Prochaine estimation";
+	const S_TEXTE_BOUTON_TRANSITION_ROUGE = "Commencer la série suivante";
+	const S_TEXTE_TRANSITION_ROUGE = "Vous allez maintenant commencer la 2ème série d’estimations, où vous devrez estimer le recouvrement de 15 quadrats virtuels.<br> Vous avez le temps que vous voulez pour prendre les mesures, et le temps est enregistré. Les quadrats ne s’enchaînent pas automatiquement, après chaque estimation vous devrez cliquer sur un bouton pour passer au quadrat suivant. Cliquez sur « commencer » quand vous êtes prêt.";
 
 	// Page de remerciements
 	
-	public $texte_remerciements = "Je vous remercie d’avoir participé à cette expérimentation ! – Jan Perret";
+	const S_TEXTE_REMERCIEMENTS = "Je vous remercie d’avoir participé à cette expérimentation ! – Jan Perret";
 	
-	public $texte_remerciements2 = "Votre identifiant est le suivant. Veuillez le noter afin de pouvoir le fournir lors du questionnaire de début si vous voulez participer plusieurs fois à l’expérience.";
-
+	const S_TEXTE_REMERCIEMENTS2 = "Votre identifiant est le suivant. Veuillez le noter afin de pouvoir le fournir lors du questionnaire de début si vous voulez participer plusieurs fois à l’expérience.";
+	const S_TEXTE_BOUTON_RECOMMENCER = "Recommencer";
 
 /*************** Questionnaire du début ***************/	
 	const S_QUESTION_GENRE = "Veuillez indiquer ce qui décrit le mieux votre genre :";

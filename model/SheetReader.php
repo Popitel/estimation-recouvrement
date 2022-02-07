@@ -56,10 +56,10 @@ class SheetReader
 	{
 		$input = new Input;
 		$model = new Model();
-		$this->setCSVName($input->green_sheet_name);
+		$this->setCSVName(Input::S_GREEN_SHEET_NAME);
 		$green_sampleNb = $this->getSampleNb();
 		$green_counter = $model->getGreenCounter();
-		$this->setCSVName($input->red_sheet_name);
+		$this->setCSVName(Input::S_RED_SHEET_NAME);
 		$red_sampleNb = $this->getSampleNb();
 		$red_counter = $model->getRedCounter();
 
@@ -92,9 +92,9 @@ class SheetReader
 	public function getGreenAndRedNamesOfSample($sampleNb)
 	{
 		$input = new Input;
-		$this->setCSVName($input->green_sheet_name);
+		$this->setCSVName(Input::S_GREEN_SHEET_NAME);
 		$names = $this->getNamesOfSample($sampleNb);
-		$this->setCSVName($input->red_sheet_name);
+		$this->setCSVName(Input::S_RED_SHEET_NAME);
 		$names = array_merge($names, $this->getNamesOfSample($sampleNb));
 
 		return $names;
@@ -109,7 +109,7 @@ class SheetReader
 	public function increaseGreenCounter()
 	{
 		$input = new Input;
-		$this->setCSVName($input->green_sheet_name);
+		$this->setCSVName(Input::S_GREEN_SHEET_NAME);
 		$model = new Model;
 		$count = $model->getGreenCounter();
 		$sampleNb = $this->getSampleNb();
@@ -126,7 +126,7 @@ class SheetReader
 	public function increaseRedCounter()
 	{
 		$input = new Input;
-		$this->setCSVName($input->red_sheet_name);
+		$this->setCSVName(Input::S_RED_SHEET_NAME);
 		$model = new Model;
 		$count = $model->getRedCounter();
 		$sampleNb = $this->getSampleNb();
@@ -147,9 +147,9 @@ class SheetReader
 		$names = array();
 		if($this->areCountersCorrect())
 		{
-			$this->setCSVName($input->green_sheet_name);
+			$this->setCSVName(Input::S_GREEN_SHEET_NAME);
 			$names = $this->getNamesOfSample($model->getGreenCounter());
-			$this->setCSVName($input->red_sheet_name);
+			$this->setCSVName(Input::S_RED_SHEET_NAME);
 			$names = array_merge($names, $this->getNamesOfSample($model->getRedCounter()));
 		}
 		return $names;
@@ -159,7 +159,7 @@ class SheetReader
 	{
 		$input = new Input;
 		$model = new Model;
-		$this->setCSVName($input->green_sheet_name);
+		$this->setCSVName(Input::S_GREEN_SHEET_NAME);
 		$names = $this->getNamesOfSample($model->getGreenCounter());
 		return count($names);
 	}

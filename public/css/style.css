@@ -1,9 +1,13 @@
 body {
-	margin-left : 18%;
-	margin-right : 18%;
+	margin-left : 30%;
+	margin-right : 30%;
 	margin-top : 3%;
-	text-align : center;
 	font-family: Verdana, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 12%;
 }
 
 p, a {
@@ -15,7 +19,6 @@ fieldset {
 }
 
 
-/* CSS */
 .button-59 {
   align-items: center;
   background-color: #fff;
